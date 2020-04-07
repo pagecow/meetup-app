@@ -5,12 +5,15 @@ import theme from './theme';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {HashRouter} from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <HashRouter>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
