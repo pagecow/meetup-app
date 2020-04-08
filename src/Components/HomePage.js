@@ -12,21 +12,25 @@ class HomePage extends React.Component {
         urlname: '',
         event_id: '',
         event_info: [],
+        rsvps_info: [],
         redirect: false,
     }
   }
 
   componentDidMount = () => {
-    this.setState({
-      urlname: this.props.urlname,
-    })
-
-    axios.get(`/api/events/${this.props.urlname}`)
-      .then(res => console.log(res))
+    this.handleEventGet();
   }
 
-  handleEventUpdate = (event_id) => {
-    this.props.updateEventId(event_id);
+  handleEventGet = () => {
+    axios.get(`/api/events`)
+      .then(res => {
+        console.log(res.data[0]);
+        this.props.updateEventId(res.data[0].id);
+      })
+      .then(() => {
+        axios.get(`/api/events/rsvps/${this.props.event_id}`)
+          .then(res => console.log(res.data[0]))
+      })
   }
 
   render() {

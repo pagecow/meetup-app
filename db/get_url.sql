@@ -1,0 +1,1 @@
+select meetup_url from meetup_url;

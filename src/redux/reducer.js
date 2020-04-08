@@ -1,5 +1,4 @@
 const initialState = {
-    urlname: 'reactjs-dallas',
     event_id: '',
 }
 
@@ -16,8 +15,8 @@ export default function reducer(state = initialState, action){
     const {type, payload} = action;
     switch(type){
         case UPDATE_EVENT_ID:
-            let event = payload;
-            return {...state, event};
+            let event_id = payload;
+            return {...state, event_id};
 
         default:
             return state;
