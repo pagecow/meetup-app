@@ -12,5 +12,12 @@ massive(CONNECTION_STRING).then(db => {
     console.log('db connected')
 });
 
+app.get('/api/events/:urlname', (req, res) => {
+    const {urlname} = req.params;
+    console.log(urlname)
+
+    res.status(200).send('get request fired')
+})
+
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Port running on port ${port}`));
