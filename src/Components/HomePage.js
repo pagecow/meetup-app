@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateEventId } from '../redux/reducer';
-import { Button, Typography } from '@material-ui/core';
 import axios from 'axios';
+
+import Header from './Header';
+import UpperBody from './UpperBody';
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        urlname: '',
         event_id: '',
         event_info: [],
         rsvps_info: [],
@@ -24,22 +25,34 @@ class HomePage extends React.Component {
   handleEventGet = () => {
     axios.get(`/api/events`)
       .then(res => {
-        console.log(res.data[0]);
-        this.props.updateEventId(res.data[0].id);
+        let data = res.data[0];
+
+        this.props.updateEventId(data.id);
+
+        this.setState({
+          event_info: data
+        })
       })
       .then(() => {
         axios.get(`/api/events/rsvps/${this.props.event_id}`)
-          .then(res => console.log(res.data[0]))
+          .then(res => {
+            let data = res.data[0];
+
+            this.setState({
+              rsvps_info: data
+            })
+          })
       })
   }
 
   render() {
+    const {event_info, rsvps_info} = this.state;
+
     return (
       <div id="home-page">
+        <Header/>
         <body id="home-body">
-          <Typography color="primary" variant="h2">Meetup App</Typography>
-          <Button className="button" color="primary" variant="outlined" >outlined</Button>
-          <Button className="button" color="primary" variant="contained" >contained</Button>
+          <UpperBody event_info={event_info} rsvps_info={rsvps_info} />
         </body>
       </div>
     );

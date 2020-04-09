@@ -6,6 +6,7 @@
   "proxy": "http://localhost:7777",
   "dependencies": {
     "@material-ui/core": "^4.9.9",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -14,6 +15,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "massive": "^6.2.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "react": "^16.13.1",

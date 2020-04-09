@@ -1,9 +1,43 @@
+/* header */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 96px;
+    width: 100%;
+    border-bottom: 1px solid rgba(46,62,72,.12);
+    padding: 18px;
+}
+
+#logo {
+    width: 123.2px;
+}
+
+.MuiLink-root {
+    font-size: 14px;
+}
+
+/* body */
+
 #home-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+#upper-body {
+    height: 179px;
+    width: 100%;
+    border-bottom: 1px solid rgba(46,62,72,.12);
+}
+
+/* items */
+
 .button {
-    width: 200px;
+    height: 42px;
+    width: 104px;
+    font-weight: bold !important;
+    text-transform: none !important;
+    border-radius: 8px !important;
 }
