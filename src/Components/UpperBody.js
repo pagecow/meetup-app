@@ -8,7 +8,10 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary.light,
     },
     secondaryDark: {
-        color: theme.palette.secondary.dark
+        color: theme.palette.secondary.dark,
+    },
+    boldText: {
+        fontWeight: 900,
     }
 }))
 
@@ -19,14 +22,39 @@ function UpperBody(props){
     console.log("event_info:", event_info);
     console.log("rsvps_info:", rsvps_info);
 
+    let name;
+    if(!rsvps_info.member){
+        name = null;
+    } else {
+        name = rsvps_info.member.name
+    };
+    console.log(name);
+
+    let thumbnail;
+    if(!rsvps_info.member){
+        name = null;
+    } else {
+        thumbnail = rsvps_info.member.photo.thumb_link
+    };
+    console.log(name);
+
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let date  = new Date(event_info.time);
 
     return (
         <div id="upper-body">
-            <Container maxWidth="md">
-                <Typography className={classes.secondaryLight}>{date.toLocaleDateString("en-US", options)}</Typography>
-                <Typography variant="h3">{event_info.name}</Typography>
+            <Container id="upper-body-container" maxWidth="md">
+                <div>
+                    <Typography className={classes.secondaryLight}>{date.toLocaleDateString("en-US", options)}</Typography>
+                    <Typography variant="h4" className={classes.boldText}>{event_info.name}</Typography>
+                    <div className="hosted-by">
+                        <img className="hosted-img" src={thumbnail}/>
+                        <div>
+                            <Typography >Hosted by</Typography>
+                            <Typography className={classes.boldText}>{name}</Typography>
+                        </div>
+                    </div>
+                </div>
                 <Button 
                     className="button" 
                     color="secondary" 

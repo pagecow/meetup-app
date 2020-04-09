@@ -27,14 +27,39 @@
 }
 
 #upper-body {
+    display: flex;
+    align-items: center;
     height: 179px;
     width: 100%;
     border-bottom: 1px solid rgba(46,62,72,.12);
 }
 
+#upper-body-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.hosted-by {
+    display: flex;
+}
+
+.hosted-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-position: 50%;
+    margin-right: 20px;
+}
+
 /* items */
 
 .button {
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
     height: 42px;
     width: 104px;
     font-weight: bold !important;
