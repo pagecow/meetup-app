@@ -6,6 +6,7 @@ import axios from 'axios';
 import Header from './Header';
 import UpperBody from './UpperBody';
 import Body from './Body';
+import Footer from './Footer';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class HomePage extends React.Component {
           <UpperBody event_info={event_info} rsvps_info={rsvps_info} />
           <Body event_info={event_info} rsvps_info={rsvps_info} />
         </body>
+        <Footer/>
       </div>
     );
   }

@@ -71,6 +71,14 @@
     margin-right: 20px;
 }
 
+.hosted-img-2 {
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    background-position: 50%;
+    margin: 0 0 20px ;
+}
+
 .button {
     position: absolute !important;
     bottom: 0 !important;
@@ -86,7 +94,7 @@
 
 #body {
     display: flex;
-    height: 1620px;
+    height: 1200px;
     width: 100%;
     background: #f6f7f8;
     border-bottom: 1px solid rgba(46,62,72,.12);

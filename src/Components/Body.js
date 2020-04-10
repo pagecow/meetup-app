@@ -7,8 +7,6 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 const useStyles = makeStyles((theme) => ({
     secondaryLight: {
         color: theme.palette.secondary.light,
@@ -26,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 900,
     },
     breakText: {
-        wordWrap: "break-word"
+        wordWrap: "break-word",
+        marginBottom: "30px",
     },
     leftCont: {
         margin: "40px 0 0 0",
@@ -44,13 +43,25 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "500px",
+        height: "490px",
         width: "330px",
         backgroundColor: "white",
         padding: "18px",
         outline: "0px",
         borderRadius: "8px",
         margin: "40px 0 200px 0",
+    },
+    whiteCont3: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        height: "180px",
+        width: "135px",
+        backgroundColor: "white",
+        padding: "20px 8px 0px",
+        outline: "0px",
+        borderRadius: "8px",
+        margin: "40px 0 0 0",
     },
     icons: {
         marginRight: "20px",
@@ -65,18 +76,22 @@ function Body(props){
     console.log("event_info:", event_info);
     console.log("rsvps_info:", rsvps_info);
 
-    let name;
+    let name, thumbnail, thumbnail2, name2, role;
     if(!rsvps_info.member){
         name = null;
+        thumbnail = null;
+        thumbnail2 = null;
+        name2 = null;
+        role = null;
     } else {
-        name = rsvps_info.group.name
-    };
-
-    let thumbnail;
-    if(!rsvps_info.member){
-        name = null;
-    } else {
+        name = rsvps_info.group.name;
         thumbnail = rsvps_info.group.group_photo.thumb_link;
+        thumbnail2 = rsvps_info.member.photo.thumb_link;
+        name2 = rsvps_info.member.name;
+        role = rsvps_info.member.role;
+    };
+    if (role) {
+        role = rsvps_info.member.role.charAt(0).toUpperCase() + role.slice(1);
     };
 
     let visibility, latitude, longitude, location, address, city, state;
@@ -116,6 +131,12 @@ function Body(props){
                 <Container className={classes.leftCont} maxWidth="sm">
                     <Typography className={classes.boldText} variant="h6">Details</Typography>
                     <Typography className={classes.breakText} dangerouslySetInnerHTML={createMarkup()} />
+                    <Typography className={classes.boldText} variant="h6">Attendees (1)</Typography>
+                    <Container className={classes.whiteCont3} >
+                        <img className="hosted-img-2" src={thumbnail2}/>
+                        <Typography className={classes.boldText}>{name2}</Typography>
+                        <Typography >{role}</Typography>
+                    </Container>
                 </Container>
 
                 <div className="right-info">
@@ -153,7 +174,7 @@ function Body(props){
                                 <Typography className={classes.secondaryDark} style={{paddingTop: "5px"}}>How to find us</Typography>
                             </div>
                         </div>
-                        <div style={{height: "200px", width: "330px", margin: "-18px"}}>
+                        <div style={{height: "200px", width: "330px", margin: "0 0 -18px -18px"}}>
                             <GoogleMapReact 
                                 bootstrapURLKeys={{ key: 'AIzaSyAsvChBYmLNEGzqxdiHOzXQRuKv1KCgTGY', language: 'en' }}
                                 center={{lat: latitude, lng: longitude}}
