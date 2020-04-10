@@ -85,6 +85,14 @@
     padding: 0 !important;
 }
 
+.right-info {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    bottom: 500px;
+    align-self: flex-start;
+}
+
 .group-img {
     height: 56px;
     width: 56px;
@@ -95,7 +103,6 @@
 .event-info {
     display: flex;
 }
-
 
 /* global */
 
