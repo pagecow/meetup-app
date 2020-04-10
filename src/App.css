@@ -8,6 +8,8 @@
     width: 100%;
     border-bottom: 1px solid rgba(46,62,72,.12);
     padding: 18px;
+    background: white;
+    z-index: 1;
 }
 
 #logo {
@@ -34,6 +36,8 @@
     height: 179px;
     width: 100%;
     border-bottom: 1px solid rgba(46,62,72,.12);
+    background: white;
+    z-index: 1;
 }
 
 #upper-body-container {
@@ -42,6 +46,16 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+}
+
+#second-upper-body-container {
+    position: fixed;
+    top: 0;
+    padding: 10px 0 10px 18.4%;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
+    z-index: -1;
 }
 
 .hosted-by {
@@ -76,6 +90,7 @@
     width: 100%;
     background: #f6f7f8;
     border-bottom: 1px solid rgba(46,62,72,.12);
+    z-index: -2;
 }
 
 #body-container {
@@ -88,7 +103,7 @@
 .right-info {
     position: -webkit-sticky; 
     position: sticky;
-    top: 0;
+    top: 65px;
     bottom: 500px;
     align-self: flex-start;
 }

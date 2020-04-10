@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     secondaryLight2: {
         color: theme.palette.secondary.light,
         fontSize: '14px',
+        zIndex: -1,
     },
     secondaryDark: {
         color: theme.palette.secondary.dark,
@@ -46,6 +47,7 @@ function UpperBody(props){
     let date  = new Date(event_info.time);
 
     return (
+        <div style={{width: "100%"}}>
         <div id="upper-body">
             <Container id="upper-body-container" maxWidth="md">
                 <div>
@@ -65,12 +67,13 @@ function UpperBody(props){
                     variant="outlined" 
                     startIcon={<ShareIcon/>}> Share </Button>
             </Container>
-        
-         {/* <Container id="second-upper-body-container" maxWidth="md">
-                 <Typography className={classes.secondaryLight2}>{date.toLocaleDateString("en-US", options)}</Typography>
-                 <Typography className={classes.boldText}>{event_info.name}</Typography>
-         </Container> */}
      </div>
+
+        <div id="second-upper-body-container">
+            <Typography className={classes.secondaryLight2}>{date.toLocaleDateString("en-US", options)}</Typography>
+            <Typography className={classes.boldText}>{event_info.name}</Typography>
+        </div>
+    </div>
     )
 }
 
