@@ -63,6 +63,17 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "8px",
         margin: "40px 0 0 0",
     },
+    whiteCont4: {
+        display: "flex",
+        flexWrap: "wrap",
+        width: "100%",
+        backgroundColor: "white",
+        padding: "18px",
+        outline: "0px",
+        borderRadius: "8px",
+        margin: "10px 0 0 0",
+        padding: "10px",
+    },
     icons: {
         marginRight: "20px",
         color: theme.palette.secondary.light,
@@ -128,6 +139,62 @@ function Body(props){
     return (
         <div id="body">
             <Container id="body-container" maxWidth="md">
+            <div className="right-info-2">
+                    <Container className={classes.whiteCont4}>
+                        <img className="group-img" src={thumbnail} />
+                        <div>
+                            <Typography className={classes.boldText}>{name}</Typography>
+                            <Typography className={classes.secondaryLight}>{visibility} group</Typography>
+                        </div>
+                    </Container>
+
+                    <Container className={classes.whiteCont4}>
+                        <div className="event-info">
+                            <CheckIcon className={classes.icons} color="secondary" />
+                            <div>
+                                <Typography className={classes.secondaryDark}>RSVP Opens</Typography>
+                                <Typography className={classes.secondaryDark}>Tuesday, May 12, 2020</Typography>
+                                <Typography className={classes.secondaryDark}>{date.toLocaleTimeString("en-US", options2)}</Typography>
+                            </div>
+                        </div>
+                        <div className="event-info">
+                            <ScheduleIcon className={classes.icons} color="secondary" />
+                            <div>
+                                <Typography className={classes.secondaryDark}>{date.toLocaleDateString("en-US", options)}</Typography>
+                                <Typography className={classes.secondaryDark}>{date.toLocaleTimeString("en-US", options2)} to {endTime.toLocaleTimeString("en-US", options2)}</Typography>
+                                <Typography className={classes.secondaryDark}>Every 2nd Tuesday of the month</Typography>
+                                <a className={classes.link} href="https://calendar.google.com" target="_blank">Add to calendar</a>
+                            </div>
+                        </div>
+                        <div className="event-info">
+                            <LocationOnOutlinedIcon className={classes.icons} color="secondary" />
+                            <div>
+                                <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank" className={classes.secondaryDark}>{location}</a>
+                                <Typography className={classes.secondaryLight}>{address} * {city}, {state}</Typography>
+                                <Typography className={classes.secondaryDark} style={{paddingTop: "5px"}}>How to find us</Typography>
+                            </div>
+                        </div>
+                        <div className="google-map">
+                            <GoogleMapReact 
+                                bootstrapURLKeys={{ key: 'AIzaSyAsvChBYmLNEGzqxdiHOzXQRuKv1KCgTGY', language: 'en' }}
+                                center={{lat: latitude, lng: longitude}}
+                                defaultZoom={12}
+                                yesIWantToUseGoogleMapApiInternals
+                                >
+                                <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank">
+                                    <LocationOnIcon
+                                        lat={latitude}
+                                        lng={longitude}
+                                        fontSize="large"
+                                        color="primary"
+
+                                        />
+                                </a>
+                            </GoogleMapReact>
+                        </div>    
+                    </Container>
+                </div>
+                
                 <Container className={classes.leftCont} maxWidth="sm">
                     <Typography className={classes.boldText} variant="h6">Details</Typography>
                     <Typography className={classes.breakText} dangerouslySetInnerHTML={createMarkup()} />

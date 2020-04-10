@@ -18,7 +18,6 @@ app.get('/api/events', async(req, res) => {
 
     let urlObj = await db.get_url();
     let url = urlObj[0].meetup_url;
-    console.log(url);
 
     fetch(`https://api.meetup.com/${url}/events?&sign=true&photo-host=public&page=1`)
         .then(res => res.json())
@@ -27,13 +26,11 @@ app.get('/api/events', async(req, res) => {
 
 app.get('/api/events/rsvps/:event_id', async(req, res) => {
     const {event_id} = req.params;
-    console.log(event_id);
 
     const db = req.app.get('db');
 
     let urlObj = await db.get_url();
     let url = urlObj[0].meetup_url;
-    console.log(url);
 
     fetch(`https://api.meetup.com/${url}/events/${event_id}/rsvps`)
         .then(res => res.json())

@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         backgroundColor: '#2f363f',
         width: '100%',
-        height: '100px'
+        height: '100px',
     },
     text: {
         color: 'white',
-        fontSize: '10px',
+        fontSize: '14px',
         position: 'absolute',
-        bottom: '14px',
+        bottom: '10px',
     }
 }))
 
