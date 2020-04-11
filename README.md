@@ -2,7 +2,7 @@ This project is a Meetup app clone. It interacts with Meetup's api to generate a
 
 This app was definitely more complex than it had to be. The purpose of making it more complex was to show that I knew how to use Redux, Node.js, SQL, and Heroku. This could have been a front-end-only application. I also used both Material-UI's built in useStyles function and standard CSS to show I knew how to use both.
 
-The live version of this application can be found at this url: http://165.227.23.18:7777/#/
+The live version of this application can be found at this url: http://165.227.23.18:7777
 
 Here's how to get the application up and running on your local machine:
 
