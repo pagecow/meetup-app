@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "18px",
         outline: "0px",
         borderRadius: "8px",
-        margin: "40px 0 200px 0",
+        margin: "40px 0 0 0",
     },
     whiteCont3: {
         display: "flex",
@@ -141,14 +141,6 @@ function Body(props){
             <Container id="body-container" maxWidth="md">
             <div className="right-info-2">
                     <Container className={classes.whiteCont4}>
-                        <img className="group-img" src={thumbnail} />
-                        <div>
-                            <Typography className={classes.boldText}>{name}</Typography>
-                            <Typography className={classes.secondaryLight}>{visibility} group</Typography>
-                        </div>
-                    </Container>
-
-                    <Container className={classes.whiteCont4}>
                         <div className="event-info">
                             <CheckIcon className={classes.icons} color="secondary" />
                             <div>
@@ -187,7 +179,6 @@ function Body(props){
                                         lng={longitude}
                                         fontSize="large"
                                         color="primary"
-
                                         />
                                 </a>
                             </GoogleMapReact>

@@ -131,7 +131,7 @@
     position: -webkit-sticky; 
     position: sticky;
     top: 65px;
-    bottom: 500px;
+    bottom: 50px;
     align-self: flex-start;
 }
 
@@ -180,7 +180,7 @@ a {
 @media (max-width: 1000px) {
     #header {
         height: 80px;
-        justify-content: center;
+        padding: 0;
     }
     #menu {
         display: none;
@@ -188,6 +188,9 @@ a {
     #menu2 {
         display: flex;
         justify-content: space-around;
+    }
+    .second-header {
+        margin: 0 2.5px;
     }
     #logo {
         display: none;

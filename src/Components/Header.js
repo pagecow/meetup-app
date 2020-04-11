@@ -18,19 +18,19 @@ function Header(){
             <Breadcrumbs id="menu2" separator="">
                 <div className="second-header">
                     <SearchIcon color="secondary" underline="none" href="https://www.meetup.com/find/events/"/> 
-                    <Link color="secondary" underline="none" href="https://secure.meetup.com/messages/">Explore</Link>
+                    <Link color="secondary" underline="none" href="https://www.meetup.com/find/events/">Explore</Link>
                 </div>
                 <div className="second-header">
-                    <GroupOutlinedIcon color="secondary" underline="none" href="https://www.meetup.com/find/events/"/> 
-                    <Link color="secondary" underline="none" href="https://secure.meetup.com/messages/">Groups</Link>
+                    <GroupOutlinedIcon color="secondary" underline="none" href="https://www.meetup.com/find/"/> 
+                    <Link color="secondary" underline="none" href="https://www.meetup.com/find/">Groups</Link>
                 </div>
                 <div className="second-header">
-                    <ChatBubbleOutlineIcon color="secondary" underline="none" href="https://www.meetup.com/find/events/"/> 
+                    <ChatBubbleOutlineIcon color="secondary" underline="none" href="https://secure.meetup.com/messages/"/> 
                     <Link color="secondary" underline="none" href="https://secure.meetup.com/messages/">Messages</Link>
                 </div>
                 <div className="second-header">
-                    <NotificationsNoneIcon color="secondary" underline="none" href="https://www.meetup.com/find/events/"/> 
-                    <Link color="secondary" underline="none" href="/">Notifications</Link>
+                    <NotificationsNoneIcon color="secondary" underline="none" href="https://www.meetup.com/find/?activity=true"/> 
+                    <Link color="secondary" underline="none" href="https://www.meetup.com/find/?activity=true">Notifications</Link>
                 </div>
             </Breadcrumbs>
         </header>
