@@ -1,12 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const {SERVER_PORT, CONNECTION_STRING} = process.env;
 
 const app = express();
 const fetch = require('node-fetch');
 
 app.use(express.json());
+app.use( express.static( `${__dirname}/../build` ) );
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
