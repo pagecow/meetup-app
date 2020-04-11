@@ -23,13 +23,6 @@ const useStyles = makeStyles((theme) => ({
     boldText: {
         fontWeight: 900,
     },
-    breakText: {
-        wordWrap: "break-word",
-        marginBottom: "30px",
-    },
-    leftCont: {
-        margin: "40px 0 0 0",
-    },
     whiteCont: {
         display: "flex",
         width: "330px",
@@ -49,21 +42,9 @@ const useStyles = makeStyles((theme) => ({
         padding: "18px",
         outline: "0px",
         borderRadius: "8px",
-        margin: "40px 0 0 0",
+        margin: "20px 0 0 0",
     },
     whiteCont3: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        height: "180px",
-        width: "135px",
-        backgroundColor: "white",
-        padding: "20px 8px 0px",
-        outline: "0px",
-        borderRadius: "8px",
-        margin: "40px 0 0 0",
-    },
-    whiteCont4: {
         display: "flex",
         flexWrap: "wrap",
         width: "100%",
@@ -80,29 +61,19 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-function Body(props){
+function BodyRightTop(props){
     const classes = useStyles();
     const event_info = props.event_info;
     const rsvps_info = props.rsvps_info;
-    console.log("event_info:", event_info);
-    console.log("rsvps_info:", rsvps_info);
 
-    let name, thumbnail, thumbnail2, name2, role;
+    let name, thumbnail;
     if(!rsvps_info.member){
         name = null;
         thumbnail = null;
-        thumbnail2 = null;
-        name2 = null;
-        role = null;
+
     } else {
         name = rsvps_info.group.name;
         thumbnail = rsvps_info.group.group_photo.thumb_link;
-        thumbnail2 = rsvps_info.member.photo.thumb_link;
-        name2 = rsvps_info.member.name;
-        role = rsvps_info.member.role;
-    };
-    if (role) {
-        role = rsvps_info.member.role.charAt(0).toUpperCase() + role.slice(1);
     };
 
     let visibility, latitude, longitude, location, address, city, state;
@@ -132,15 +103,11 @@ function Body(props){
     let date  = new Date(event_info.time);
     let endTime  = new Date(event_info.time + event_info.duration);
 
-    function createMarkup() {
-        return {__html: event_info.description};
-      }
-
     return (
-        <div id="body">
-            <Container id="body-container" maxWidth="md">
-            <div className="right-info-2">
-                    <Container className={classes.whiteCont4}>
+        <div id="responsive-header">
+            <div id="body-container">
+                <div className="right-info-2">
+                    <Container className={classes.whiteCont3}>
                         <div className="event-info">
                             <CheckIcon className={classes.icons} color="secondary" />
                             <div>
@@ -185,74 +152,9 @@ function Body(props){
                         </div>    
                     </Container>
                 </div>
-                
-                <Container className={classes.leftCont} maxWidth="sm">
-                    <Typography className={classes.boldText} variant="h6">Details</Typography>
-                    <Typography className={classes.breakText} dangerouslySetInnerHTML={createMarkup()} />
-                    <Typography className={classes.boldText} variant="h6">Attendees (1)</Typography>
-                    <Container className={classes.whiteCont3} >
-                        <img className="hosted-img-2" src={thumbnail2}/>
-                        <Typography className={classes.boldText}>{name2}</Typography>
-                        <Typography >{role}</Typography>
-                    </Container>
-                </Container>
-
-                <div className="right-info">
-                    <Container className={classes.whiteCont}>
-                        <img className="group-img" src={thumbnail} />
-                        <div>
-                            <Typography className={classes.boldText}>{name}</Typography>
-                            <Typography className={classes.secondaryLight}>{visibility} group</Typography>
-                        </div>
-                    </Container>
-
-                    <Container className={classes.whiteCont2}>
-                        <div className="event-info">
-                            <CheckIcon className={classes.icons} color="secondary" />
-                            <div>
-                                <Typography className={classes.secondaryDark}>RSVP Opens</Typography>
-                                <Typography className={classes.secondaryDark}>Tuesday, May 12, 2020</Typography>
-                                <Typography className={classes.secondaryDark}>{date.toLocaleTimeString("en-US", options2)}</Typography>
-                            </div>
-                        </div>
-                        <div className="event-info">
-                            <ScheduleIcon className={classes.icons} color="secondary" />
-                            <div>
-                                <Typography className={classes.secondaryDark}>{date.toLocaleDateString("en-US", options)}</Typography>
-                                <Typography className={classes.secondaryDark}>{date.toLocaleTimeString("en-US", options2)} to {endTime.toLocaleTimeString("en-US", options2)}</Typography>
-                                <Typography className={classes.secondaryDark}>Every 2nd Tuesday of the month</Typography>
-                                <a className={classes.link} href="https://calendar.google.com" target="_blank">Add to calendar</a>
-                            </div>
-                        </div>
-                        <div className="event-info">
-                            <LocationOnOutlinedIcon className={classes.icons} color="secondary" />
-                            <div>
-                                <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank" className={classes.secondaryDark}>{location}</a>
-                                <Typography className={classes.secondaryLight}>{address} * {city}, {state}</Typography>
-                                <Typography className={classes.secondaryDark} style={{paddingTop: "5px"}}>How to find us</Typography>
-                            </div>
-                        </div>
-                        <div style={{height: "200px", width: "330px", margin: "0 0 -18px -18px"}}>
-                            <GoogleMapReact 
-                                bootstrapURLKeys={{ key: 'AIzaSyAsvChBYmLNEGzqxdiHOzXQRuKv1KCgTGY', language: 'en' }}
-                                center={{lat: latitude, lng: longitude}}
-                                defaultZoom={12}
-                                >
-                                <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank">
-                                    <LocationOnIcon
-                                        lat={latitude}
-                                        lng={longitude}
-                                        fontSize="large"
-                                        color="primary"
-                                        />
-                                </a>
-                            </GoogleMapReact>
-                        </div>    
-                    </Container>
-                </div>
-            </Container>
+            </div>
         </div>
     )
 }
 
-export default Body;
+export default BodyRightTop;

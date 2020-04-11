@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateEventId } from '../redux/reducer';
+import { updateEventId } from '../../redux/reducer';
 import axios from 'axios';
 
-import Header from './Header';
-import UpperBody from './UpperBody';
-import Body from './Body';
-import Footer from './Footer';
+import Header from './HomePageParts/Header';
+import UpperBody from './HomePageParts/UpperBody';
+import Body from './HomePageParts/Body';
+import Footer from './HomePageParts/Footer';
 
 class HomePage extends React.Component {
   constructor(props) {

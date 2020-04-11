@@ -4,7 +4,7 @@ import store from './redux/store';
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
 
-import HomePage from './Components/HomePage';
+import HomePage from './Components/HomePage/HomePage';
 
 function App() {
   return (
