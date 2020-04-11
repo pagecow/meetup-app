@@ -4,7 +4,7 @@ import BodyLeft from './BodyLeft';
 import BodyRightTop from './BodyRightTop';
 import BodyRightBottom from './BodyRightBottom';
 
-import { Container, Typography, makeStyles } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 function Body(props){
     const event_info = props.event_info;

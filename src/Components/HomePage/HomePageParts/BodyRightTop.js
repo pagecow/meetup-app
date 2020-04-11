@@ -34,15 +34,15 @@ const useStyles = makeStyles((theme) => ({
     },
     whiteCont2: {
         display: "flex",
-        flexDirection: "column",
         justifyContent: "space-between",
-        height: "490px",
-        width: "330px",
+        flexWrap: "wrap",
+        height: "auto",
+        width: "100%",
         backgroundColor: "white",
         padding: "18px",
         outline: "0px",
         borderRadius: "8px",
-        margin: "20px 0 0 0",
+        margin: "0",
     },
     whiteCont3: {
         display: "flex",
@@ -64,21 +64,9 @@ const useStyles = makeStyles((theme) => ({
 function BodyRightTop(props){
     const classes = useStyles();
     const event_info = props.event_info;
-    const rsvps_info = props.rsvps_info;
 
-    let name, thumbnail;
-    if(!rsvps_info.member){
-        name = null;
-        thumbnail = null;
-
-    } else {
-        name = rsvps_info.group.name;
-        thumbnail = rsvps_info.group.group_photo.thumb_link;
-    };
-
-    let visibility, latitude, longitude, location, address, city, state;
+    let latitude, longitude, location, address, city, state;
     if(!event_info){
-        visibility = null;
         latitude = null;
         longitude = null;
         location = null;
@@ -86,7 +74,6 @@ function BodyRightTop(props){
         city = null;
         state = null;
     } else if (event_info.visibility && event_info.venue.lat && event_info.venue.lon && event_info.venue.name) {
-        visibility = event_info.visibility;
         latitude = event_info.venue.lat;
         longitude = event_info.venue.lon;
         location = event_info.venue.name;
@@ -94,9 +81,6 @@ function BodyRightTop(props){
         city = event_info.venue.city;
         state = event_info.venue.state;
     }; 
-    if (visibility) {
-        visibility = event_info.visibility.charAt(0).toUpperCase() + visibility.slice(1);
-    };
 
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let options2 = { timeZone: 'America/Chicago', hour: '2-digit', minute: '2-digit' };
@@ -104,10 +88,10 @@ function BodyRightTop(props){
     let endTime  = new Date(event_info.time + event_info.duration);
 
     return (
-        <div id="responsive-header">
+       <div id="body-right">
             <div id="body-container">
                 <div className="right-info-2">
-                    <Container className={classes.whiteCont3}>
+                    <Container className={classes.whiteCont2}>
                         <div className="event-info">
                             <CheckIcon className={classes.icons} color="secondary" />
                             <div>
@@ -138,7 +122,6 @@ function BodyRightTop(props){
                                 bootstrapURLKeys={{ key: 'AIzaSyAsvChBYmLNEGzqxdiHOzXQRuKv1KCgTGY', language: 'en' }}
                                 center={{lat: latitude, lng: longitude}}
                                 defaultZoom={12}
-                                yesIWantToUseGoogleMapApiInternals
                                 >
                                 <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank">
                                     <LocationOnIcon

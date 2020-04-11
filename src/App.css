@@ -127,6 +127,8 @@
 #body-container {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    height: 100%;
     width: 100%;
     padding: 0 0 50px 0 !important;
 }
@@ -140,7 +142,7 @@
     position: -webkit-sticky; 
     position: sticky;
     top: 65px;
-    bottom: 50px;
+    margin-bottom: 50px;
     align-self: flex-start;
 }
 
@@ -191,6 +193,9 @@ a {
         height: 80px;
         padding: 0;
     }
+    #logo {
+        display: none;
+    }
     #menu {
         display: none;
     }
@@ -201,34 +206,40 @@ a {
     .second-header {
         margin: 0 2.5px;
     }
-    #logo {
-        display: none;
-    }
-    #responsive-header {
-        display: flex;
-    }
-    #body-right {
-        display: none !important;
-    }
-    #upper-body {
-        height: 220px;
-        padding: 0 18px 18px 0;
-        box-sizing: border-box;
-    }
-    .button {
-        width: 90px;
-    }
     #second-upper-body-container{
         display: none;
     }
+    .makeStyles-whiteCont-54 {
+        border-radius: 0 !important;
+        margin: -10px 0 0 0;
+    }
+    .group-img {
+        margin-left: 6px;
+    }
+    #upper-body {
+        padding: 20px 0;
+    }
+    .makeStyles-whiteCont2-100 {
+        border-radius: 0 !important;
+    }
+    .button {
+        width: 90px;
+        margin-right: 16px !important;
+    }
     #body-container {
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        height: 100%;
         width: 100%;
+        padding: 0 !important;
     }
     #body-left-container {
         width: 100% !important;
         padding: 0 16px !important;
         box-sizing: border-box;
+        margin-bottom: 50px;
     }
     .right-info{
         display: none;
@@ -238,19 +249,14 @@ a {
         flex-direction: column;
         width: 100% !important;
         margin: 0 !important;
+        margin: 10px 0 0 0 !important;
     }
-    .makeStyles-whiteCont-54 {
-        border-radius: 0 !important;
-    }
-    .group-img {
-        margin-left: 6px;
+    .event-info {
+        margin: 10px;
     }
     .google-map {
         height: 200px; 
         width: 110%;
-        margin: 10px -10px -10px -10px; 
-    }
-    .event-info {
-        margin: 10px;
+        margin: 10px -20px -20px -20px; 
     }
 }
