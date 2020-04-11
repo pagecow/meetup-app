@@ -22,7 +22,7 @@ SESSION_SECRET=asdfn425lnasfg8q35tasfg8q3rt9
 
 ### `type 'nodemon' into one terminal`
 
-This will start the server and connect to the database. The terminal should say 'Port runnin of port 7777' and 'db connected'.
+This will start the server and connect to the database. The terminal should say 'Port running on port 7777' and 'db connected'.
 
 ### `type 'npm start' into the second terminal`
 
