@@ -14,8 +14,8 @@ Here's how to get the application up and running:
 
 Copy and paste this to your .env file:
 
-SERVER_PORT=7777
-CONNECTION_STRING=postgres://cacrlpviwtlvnh:9943f86fe58292734b6c9fe6f1b187edfdac93dda57b88a629661112ed25ed72@ec2-18-206-84-251.compute-1.amazonaws.com:5432/dfrfafiklsn6mr?ssl=true
+SERVER_PORT=7777 <br />
+CONNECTION_STRING=postgres://cacrlpviwtlvnh:9943f86fe58292734b6c9fe6f1b187edfdac93dda57b88a629661112ed25ed72@ec2-18-206-84-251.compute-1.amazonaws.com:5432/dfrfafiklsn6mr?ssl=true <br />
 SESSION_SECRET=asdfn425lnasfg8q35tasfg8q3rt9
 
 ### `open two terminals`
