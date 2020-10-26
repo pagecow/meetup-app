@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "490px",
+        // height: "490px",
         width: "330px",
         backgroundColor: "white",
         padding: "18px",

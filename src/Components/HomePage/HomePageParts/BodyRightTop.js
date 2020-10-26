@@ -109,7 +109,7 @@ function BodyRightTop(props){
                                 <a className={classes.link} href="https://calendar.google.com" target="_blank">Add to calendar</a>
                             </div>
                         </div>
-                        <div className="event-info">
+                        {/* <div className="event-info">
                             <LocationOnOutlinedIcon className={classes.icons} color="secondary" />
                             <div>
                                 <a href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`} target="_blank" className={classes.secondaryDark}>{location}</a>
@@ -132,7 +132,7 @@ function BodyRightTop(props){
                                         />
                                 </a>
                             </GoogleMapReact>
-                        </div>    
+                        </div>     */}
                     </Container>
                 </div>
             </div>
